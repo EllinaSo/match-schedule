@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap')
+
+body
+    color: #ffffff
+    margin: 0
+    min-width: 320px
+    overflow-x: hidden
+    font-family: 'Roboto Condensed', sans-serif
+    font-weight: 300
+.container
+    position: relative
+    padding-top: 80px
+    height: 100vh
+    box-sizing: border-box
+    background: radial-gradient(circle at center, transparent 37.5%, #7182c0 calc(37.6%  + 1px), transparent calc(37.6%  + 3px)),radial-gradient(circle at center, transparent 58.5%, #7182c0 calc(58.54%  + 1px), transparent calc(58.54%  + 2px)), radial-gradient(circle at center, #8a8ae9 0, #020a21 70%)
+    background-color: #020a21
+.content
+    display: flex
+    flex-direction: column
+    overflow: hidden
+    height: 100%
+.menu
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    display: flex
+    height: 80px
+    font-weight: 400
+    padding-left: 40px
+    padding-right: 40px
+    z-index: 5
+    a
+        color: inherit
+        text-decoration: none
+    &__block
+        width: 28%
+        display: flex
+        align-items: center
+    &__current
+        text-transform: uppercase
+        font-size: 18px
+        transition: color .3s ease
+        &:focus,
+        &:hover
+            color: #7182c0
+    &__nav
+        display: flex
+        justify-content: space-between
+        flex-grow: 1
+    &__link
+        padding: 10px 15px
+        position: relative
+        transition: .3s ease
+        &:hover,
+        &:focus
+            transform: scale(1.3, 1.2)
+    &__user
+        display: flex
+        justify-content: flex-end
+    &__login
+        background-color: transparent
+        color: inherit
+        font: inherit
+        padding: 10px
+        cursor: pointer
+        display: flex
+        align-items: center
+        border: none
+        margin-right: 30px
+        &::before
+            display: block
+            width: 25px
+            height: 25px
+            background-size: contain
+            background-repeat: no-repeat
+            background-image: url(./../img/login.svg)
+            content: ""
+            margin-right: 5px
+            transition: transform .3s ease
+        &:focus::before,
+        &:hover::before
+            transform: scale(1.2)
+    &__toggler
+        padding-right: 0
+        background-color: transparent
+        border: none
+        cursor: pointer
+        transition: transform .3s ease
+        img
+            display: block
+        &:focus,
+        &:hover
+            transform: scale(1.2)
+
+.content
+    position: relative
+    overflow: hidden
+    flex-grow: 1
+.hexagone
+    -webkit-tap-highlight-color: transparent;
+    position: absolute
+    background: #ffffff
+    transition: .3s ease
+    transform: translate(-50%, -50%)
+    cursor: pointer
+    width: 4em
+    height: 7em
+    border-radius: .3em/.15em
+    color: #000013
+    padding: 25px 0
+    box-sizing: border-box
+    text-align: center
+    display: flex
+    flex-direction: column
+    justify-content: center
+    box-shadow: 0 0 15px  #10172c
+    outline: none   
+    
+    p         
+        margin: 0
+        font-size: 0
+        transition: font .3s ease
+    span
+        font-size: 1.1em        
+        margin: auto
+        font-weight: bold
+        transition: .3s ease
+        br
+            display: block
+
+    &:before,
+    &::after 
+        position: absolute
+        left: 0
+        top: 0
+        width: inherit
+        height: inherit
+        border-radius: inherit
+        background: inherit
+        box-shadow: 0 -7px 5px -6px #293560, 0 7px 5px -6px #293560
+        content: ""
+        transform: rotate(60deg)
+        z-index: -1
+    &:after 
+        transform: rotate(-60deg)
+    &__part
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        transition: .3s ease
+        &:first-child
+            height: 100%
+        &:last-child
+            height: 0
+    &__btn
+        family: inherit
+        border: 1px solid #ffffff
+        border-radius: 10px
+        padding: 0 15px
+        background-color: #ffffff
+        font-size: 1em
+        cursor: pointer
+        transition: .3s ease
+        overflow: hidden
+        height: 0
+        box-sizing: border-box
+    &__left,
+    &__right
+        position: absolute
+        height: 8em
+        width: 0
+        cursor: auto
+        transition: opacity .3s ease, width .4s ease
+        opacity: 0
+    &__rival
+        position: relative   
+        display: flex
+        height: 100%
+        width: 100%
+        background-color: #ffffff
+        box-sizing: border-box
+        border-radius: 20px
+        &::before
+            position: absolute
+            content: ''
+            width:  6em
+            height: 10em
+            border-top-right-radius: 12%
+            border-bottom-right-radius: 5%
+            background-color: inherit
+            z-index: -1
+            box-shadow: 2px 0 2px  #36436a
+    &__left
+        right: 165%
+        top: 0
+        .hexagone__rival
+            text-align: right
+            padding-right: 30px
+            box-shadow: -2px 0 1px  #10172c
+            &::before
+                bottom: 0
+                right: 0
+                transform: skewX(-30deg) scale(1, 0.8) translate(50%, 1.26em)
+    &__right
+        bottom: 0
+        left: 165%
+        .hexagone__rival
+            text-align: left
+            padding-left: 30px
+            box-shadow: 2px 0 1px  #10172c
+            &::before
+                top: 0
+                left: 0
+                transform: rotate(180deg) skewX(-30deg) scale(1, 0.8) translate(50%,1.26em)
+         
+    &--left
+        transform: translate(0, 0)
+        top: 100%
+        left: 0
+        opacity: 0
+    &--right
+        transform: translate(-100%, -100%)
+        top: 0
+        left: 100%
+        opacity: 0
+
+    &--third
+        top: calc(50% - 40px)
+        left: 50%
+        border-radius: 1em/.5em        
+        width: 10em
+        height: 17.32em
+        z-index: 3
+        p         
+            font-size: 1.4em
+        span
+            font-size: 2.3em
+            font-weight: bold
+            width: 100%
+            br
+                display: none
+        .hexagone
+            &__btn
+                border-color: #000013
+                height: 50px
+                &:hover,
+                &:focus
+                    background-color: #8a8ae9
+                    color: #ffffff
+                    border-color: #ffffff
+            &__part
+                height: 50%
+                padding: 5px
+            &__left,
+            &__right
+                width: 50vw
+                opacity: 1
+
+    &--second
+        top: calc(32% - 40px)
+        left: 68%
+        width: 6em
+        height: 10.2em
+        border-radius: .7em/.25em
+        z-index: 2
+
+    &--fourth
+        top: calc(68% - 40px)
+        left: 32%
+        width: 6em
+        height: 10.2em
+        border-radius: .7em/.25em
+        z-index: 2
+
+    &--fifth
+        top: calc(80% - 40px)
+        left: 21%
+        z-index: 1
+    &--first
+        top: calc(20% - 40px)
+        left: 79%
+        z-index: 1
+
+@media (max-width: 1120px)
+    body
+        font-size: 14px
+
+@media (max-width: 960px)
+    .container
+        padding-top: 60px
+        background: radial-gradient(circle at center, transparent 44.5%, #7182c0 calc(44.6%  + 1px), transparent calc(44.6%  + 3px)),radial-gradient(circle at center, transparent 70.5%, #7182c0 calc(70.54%  + 1px), transparent calc(70.54%  + 2px)), radial-gradient(circle at center, #8a8ae9 0, #020a21 70%)
+    .menu
+        height: 60px
+        padding-left: 20px
+        padding-right: 20px
+        justify-content: space-between
+        &__nav
+            position: absolute
+            display: flex
+            flex-direction: column
+            justify-content: center
+            top: 0
+            left: 0
+            height: 100vh 
+            width: 100%  
+            background-color: #020a21 
+            z-index: -1
+            transition: transform .3s ease
+            transform: translateY(-100%)
+            &--active
+                transform: translateY(0)
+
+        &__link 
+            font-size: 1.5em
+        &__current
+            font-size: 1em
+        &__login
+            margin-right: 15px
+    .hexagone            
+        &__left,
+        &__right
+            height: 7.5em
+        &__rival::before
+            height: 9.4em
+        &__right .hexagone__rival
+            padding-left: 0
+            span
+                margin-left: 0
+            &::before
+                transform: rotate(180deg) skewX(-30deg) scale(1, 0.8) translate(50%,1.2em)
+        &__left .hexagone__rival
+            padding-right: 0
+            span
+                margin-right: 0
+            &::before
+                transform: skewX(-30deg) scale(1, 0.8) translate(50%, 1.2em)
+        &--third
+            top: calc(50% - 30px)
+            padding: 15px 0
+            width: 8.7em
+            height: 15em
+            span
+                font-size: 1.5em
+                width: 50%
+                min-width: 120px
+            .hexagone
+                &__btn
+                    height: 35px
+                    padding: 0 5px
+                
+        &--second
+            top: calc(30% - 30px)
+            left: 73%
+
+        &--fourth
+            top: calc(70% - 30px)
+            left: 27%
+
+        &--fifth
+            top: calc(80% - 30px)
+            left: 10%
+        &--first
+            top: calc(20% - 30px)
+            left: 90%
+
+@media (max-width: 640px)
+    .hexagone
+        &__rival
+            border-radius: 0
+            &::before
+                width: 3em
+        &__left
+            right: 80%
+            transform: translateY(-110%)
+            height: 4.55em
+            transition: none
+            span
+                font-size: 1.3em
+                width: 120px
+            .hexagone__rival::before
+                transform: skewX(-30deg) scale(1, 0.8) translate(60%, 0.7em)
+        &__right
+            left: 80%
+            transform: translateY(110%)
+            height: 4.55em
+            transition: none
+            span
+                font-size: 1.3em
+                width: 120px
+            .hexagone__rival::before
+                transform: rotate(180deg)  skewX(-30deg) scale(1, 0.8) translate(60%, 0.65em)
+                
+        &__rival::before
+            height: 5.65em
+        &--third
+            .hexagone__left,
+            .hexagone__right
+                width: 80vw
