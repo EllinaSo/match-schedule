@@ -239,8 +239,8 @@ body {
   height: inherit;
   border-radius: inherit;
   background: inherit;
-  -webkit-box-shadow: 0 -7px 5px -6px #293560, 0 7px 5px -6px #293560;
-          box-shadow: 0 -7px 5px -6px #293560, 0 7px 5px -6px #293560;
+  -webkit-box-shadow: 0 -7px 3px -6px #293560, 0 7px 3px -6px #293560;
+          box-shadow: 0 -7px 3px -6px #293560, 0 7px 3px -6px #293560;
   content: "";
   -webkit-transform: rotate(60deg);
       -ms-transform: rotate(60deg);
@@ -323,7 +323,7 @@ body {
   position: absolute;
   content: '';
   width: 6em;
-  height: 10em;
+  height: 10.05em;
   border-top-right-radius: 12%;
   border-bottom-right-radius: 5%;
   background-color: inherit;
@@ -340,8 +340,8 @@ body {
 .hexagone__left .hexagone__rival {
   text-align: right;
   padding-right: 30px;
-  -webkit-box-shadow: -2px 0 1px  #10172c;
-          box-shadow: -2px 0 1px  #10172c;
+  -webkit-box-shadow: -4px 0 1px  #10172c;
+          box-shadow: -4px 0 1px  #10172c;
 }
 
 .hexagone__left .hexagone__rival::before {
@@ -360,8 +360,8 @@ body {
 .hexagone__right .hexagone__rival {
   text-align: left;
   padding-left: 30px;
-  -webkit-box-shadow: 2px 0 1px  #10172c;
-          box-shadow: 2px 0 1px  #10172c;
+  -webkit-box-shadow: 4px 0 1px  #10172c;
+          box-shadow: 4px 0 1px  #10172c;
 }
 
 .hexagone__right .hexagone__rival::before {
