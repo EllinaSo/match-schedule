@@ -1,37 +1,37 @@
 "use strict";
 (function () {
     const EVENTS_LIST = [{
-            place: "Стадион",
-            date: "30 сентября",
+            place: "Stadium",
+            date: "September 30th",
             time: "13:00",
-            rivals: ["Соперник Соперник №1", "Соперник №6"]
+            rivals: ["Opponent #1", "Opponent №6"]
         },
         {
-            place: "Площадка",
-            date: "16 июля",
+            place: "Venue",
+            date: "July 16th",
             time: "18:00",
-            rivals: ["Соперник №1", "Соперник №3"]
+            rivals: ["Opponent №1", "Opponent №3"]
         },
         {
-            place: "Стадион",
-            date: "26 июня",
+            place: "Stadium",
+            date: "June 26th",
             time: "19:00",
-            rivals: ["Соперник №3", "Соперник №2"]
+            rivals: ["Opponent №3", "Opponent №2"]
         },
         {
-            place: "Арена",
-            date: "17 июня",
+            place: "Arena",
+            date: "June 17th",
             time: "16:00",
-            rivals: ["Соперник №5", "Соперник №2"]
+            rivals: ["Opponent №5", "Opponent №2"]
         },
         {
-            place: "Малый второй зал",
-            date: "30 мая",
+            place: "Small second hall",
+            date: "May 30th",
             time: "19:30",
-            rivals: ["Соперник №4", "Соперник №5"]
+            rivals: ["Opponent №4", "Opponent №5"]
         },
     ]
-    const HEXAGONE__CLASS = {
+    const HEXAGON__CLASS = {
         hideLeft: "hexagone hexagone--left",
         hideRight: "hexagone hexagone--right",
         main: "hexagone hexagone--third",
@@ -53,7 +53,7 @@
             hexagone.querySelector('.hexagone__right span').textContent = EVENTS_LIST[index].rivals[1];
         })
         
-        // Перелистывание при скролле
+        // Scrolling pagination
         window.addEventListener("wheel", function (e) {
             const delta = e.deltaY || e.detail || e.wheelDelta;
             if (delta > 0) {
@@ -63,10 +63,10 @@
                 if (currentIndex !== 0) currentIndex = --currentIndex;
                 else return;
             }
-            moveHexagones();
+            moveHexagons();
         });
 
-        // Перелистывание при нажатие  на клавиатуре
+        // Keyboard navigation pagination
         window.addEventListener("keydown", function (e) {
             if (e.key === "ArrowDown") {
                 if (currentIndex !== lastIndex) currentIndex = ++currentIndex;
@@ -75,39 +75,39 @@
                 if (currentIndex !== 0) currentIndex = --currentIndex;
                 else return;
             }
-            moveHexagones();
+            moveHexagons();
         });
 
-        // Перелистывание при нажатии/фркусировке на карточку
+        // Scrolling upon card focus/navigation
         hexagoneList.forEach(hexagone => {
             hexagone.addEventListener('click', function (e) {
                 currentIndex = parseInt(e.target.closest(".hexagone").id);
-                moveHexagones();
+                moveHexagons();
             })
             hexagone.addEventListener('focus', function (e) {
                 currentIndex = parseInt(e.target.closest(".hexagone").id);
-                moveHexagones();
+                moveHexagons();
             }, true);
         })
 
 
-        function moveHexagones() {
-            // сброс состояния
+        function moveHexagons() {
+            // Reset state
             hexagoneList.forEach((hexagone, index) => {
                 if (index > 2) {
-                    hexagone.classList = HEXAGONE__CLASS.hideLeft;
+                    hexagone.classList = HEXAGON__CLASS.hideLeft;
                 } else {
-                    hexagone.classList = HEXAGONE__CLASS.hideRight;
+                    hexagone.classList = HEXAGON__CLASS.hideRight;
                 }
             })
-            // установка основной карточки
-            hexagoneList[currentIndex].classList = HEXAGONE__CLASS.main;
-            // установка соседних карточек
-            if (currentIndex !== 0) hexagoneList[currentIndex - 1].classList = HEXAGONE__CLASS.second;
-            if (currentIndex !== lastIndex) hexagoneList[currentIndex + 1].classList = HEXAGONE__CLASS.fourth;
-            // установка боковых карточек
-            if (currentIndex - 1 > 0) hexagoneList[currentIndex - 2].classList = HEXAGONE__CLASS.first;
-            if (currentIndex + 1 < lastIndex) hexagoneList[currentIndex + 2].classList = HEXAGONE__CLASS.fifth;
+            // Setting the primary card
+            hexagoneList[currentIndex].classList = HEXAGON__CLASS.main;
+            // Setting adjacent cards
+            if (currentIndex !== 0) hexagoneList[currentIndex - 1].classList = HEXAGON__CLASS.second;
+            if (currentIndex !== lastIndex) hexagoneList[currentIndex + 1].classList = HEXAGON__CLASS.fourth;
+            // Setting side cards
+            if (currentIndex - 1 > 0) hexagoneList[currentIndex - 2].classList = HEXAGON__CLASS.first;
+            if (currentIndex + 1 < lastIndex) hexagoneList[currentIndex + 2].classList = HEXAGON__CLASS.fifth;
         }
         const menu = document.querySelector('.menu');
         const menuToggler = menu.querySelector('.menu__toggler');
